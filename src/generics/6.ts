@@ -15,6 +15,7 @@
 // Реалізуйте Params так,
 // /щоб унеможливити поле 'errors' з типу Form
 // type Params = Form;
+
 type Errors = {
   email?: string[];
   firstName?: string[];
@@ -28,8 +29,6 @@ type Form = {
   phone: string | null;
   errors: Errors;
 };
-
-type Params = Pick<Form, "email" | "firstName" | "lastName" | "phone">;
-
-// або  Omit, виключаючи поле 'errors'
 type Params = Omit<Form, "errors">;
+
+// або type Params = Pick<Form, "email" | "firstName" | "lastName" | "phone">;
